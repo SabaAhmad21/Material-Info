@@ -1,0 +1,11 @@
+@APIS_HostAddress = http://localhost:5129
+
+GET {{APIS_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{APIS_HostAddress}}/todos/1
+Accept: application/json
+
+###
