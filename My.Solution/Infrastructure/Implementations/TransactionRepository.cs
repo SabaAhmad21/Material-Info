@@ -24,18 +24,19 @@ namespace Infrastructure.Implementations
 
         }
 
-        public async Task<bool> TransactionCreate(TransactionCreateVM model)
+        //public async Task<bool> TransactionCreate(TransactionCreateVM model)
+        public async Task<Transaction> TransactionCreate(TransactionCreateVM model)
         {
-            return await _genericRepository.Create(new Transaction()
+            var result =  await _genericRepository.Create(new Transaction()
             {
                 Name = model.Name,
                 TotalPrice = model.TotalPrice,
                 CreatedDate = DateTime.Now,
                 TransactionDate = DateTime.Now,
                 SupplierId = model.SupplierId,
-
-
             });
+            var transactionCreated = await _context.Transactions.OrderByDescending(p => p.CreatedDate).Take(1).FirstOrDefaultAsync();
+            return transactionCreated;
         }
 
         public async Task<bool> TransactionUpdate(TransactionUpdateVM model)

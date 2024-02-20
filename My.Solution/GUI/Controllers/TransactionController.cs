@@ -27,7 +27,8 @@ namespace GUI.Controllers
         {
             return View (new TransactionCreateVM()
             {
-                Suppliers = await _supplierRepository.SupplierGetAll()
+                Suppliers = await _supplierRepository.SupplierGetAll(),
+                TransactionDate = DateTime.Now
 
             });
         }
@@ -37,10 +38,12 @@ namespace GUI.Controllers
             if (ModelState.IsValid)
             {
                 var transactionVM = await _transactionRepository.TransactionCreate(model);
-                if (transactionVM)
-                {
-                    ModelState.AddModelError("", "Transaction successfully Done");
-                }
+                return RedirectToAction("TransactionDetialCreate", "TransDetail" , transactionVM);
+                //if (transactionVM)
+                //{
+                //    ModelState.AddModelError("", "Transaction successfully Done");
+                //}
+
             }
             return View(new TransactionCreateVM
             {

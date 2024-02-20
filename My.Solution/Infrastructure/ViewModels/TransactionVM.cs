@@ -37,9 +37,6 @@ namespace Infrastructure.ViewModels
         [Required(ErrorMessage = "TotalPrice Required")]
         public int TotalPrice { get; set; }
 
-        [Required(ErrorMessage = "CreatedDate Required")]
-        public DateTime CreatedDate { get; set; }
-
         [Required(ErrorMessage = "TransactionDate Required")]
         public DateTime TransactionDate { get; set; }
 

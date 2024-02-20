@@ -1,4 +1,5 @@
-﻿using Infrastructure.ViewModels;
+﻿using Domain;
+using Infrastructure.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace Infrastructure.Interfaces
     public interface ITransactionRepository
     {
         Task<TransactionUpdateVM> TransactionGetById(int Id);
-        Task<bool> TransactionCreate(TransactionCreateVM model);
+        //Task<bool> TransactionCreate(TransactionCreateVM model);
+        Task<Transaction> TransactionCreate(TransactionCreateVM model);
         Task<bool> TransactionUpdate(TransactionUpdateVM model);
         Task<IEnumerable<TransactionVM>> TransactionGetAll();
         Task<bool> TransactionDelete(int Id);

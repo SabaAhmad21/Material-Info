@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Infrastructure.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using System.Transactions;
 
 namespace GUI.Controllers
 {
@@ -6,6 +8,17 @@ namespace GUI.Controllers
     {
         public IActionResult Index()
         {
+            return View();
+        }
+        public IActionResult TransactionDetialCreate(Domain.Transaction transaction)
+        {
+            var model = new TransactionDetailCreateVM()
+            {
+                transaction = transaction,
+                 TransactionId = transaction.TransactionId,
+               //  RawMaterials 
+                  
+            };
             return View();
         }
     }

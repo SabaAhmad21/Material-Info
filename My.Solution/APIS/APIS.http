@@ -1,11 +1,6 @@
-@APIS_HostAddress = http://localhost:5129
+@APIS_HostAddress = http://localhost:5186
 
-GET {{APIS_HostAddress}}/todos/
-Accept: application/json
-
-###
-
-GET {{APIS_HostAddress}}/todos/1
+GET {{APIS_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

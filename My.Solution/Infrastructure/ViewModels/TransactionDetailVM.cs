@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Infrastructure.ViewModels
 {
@@ -67,6 +69,8 @@ namespace Infrastructure.ViewModels
         public IEnumerable<RawMaterialVM> RawMaterials { get; set; }
 
         public IEnumerable<SupplierVM> Suppliers { get; set; }
+        public Domain.Transaction transaction { get; set; }
+
     }
     public class TransactionDetailUpdateVM
     {
