@@ -16,8 +16,10 @@ namespace GUI.Controllers
             {
                 transaction = transaction,
                  TransactionId = transaction.TransactionId,
-               //  RawMaterials 
-                  
+                 CreatedDate = transaction.CreatedDate,
+                TransactionDate=
+
+
             };
             return View();
         }
