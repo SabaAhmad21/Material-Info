@@ -39,7 +39,7 @@ namespace Infrastructure.Implementations
                 Price = model.Price,
                 CreatedDate = DateTime.Now,
                 UpdateDate=DateTime.Now,
-                SupplierId = model.SupplierId,
+                //SupplierId = model.SupplierId,
                 MaterialId = model.MaterialId,
                 TransactionId = model.TransactionId,
             });
@@ -57,11 +57,11 @@ namespace Infrastructure.Implementations
                     NoOfItems = transactionDetails.NoOfItems,
                     Price = transactionDetails.Price,
                     MaterialId = transactionDetails.MaterialId,
-                    SupplierId = transactionDetails.SupplierId,
+                    //SupplierId = transactionDetails.SupplierId,
                     TransactionId= transactionDetails.TransactionId,
 
                     RawMaterials = await _rawMaterialRepository.MaterialGetAll(),
-                    Suppliers = await _supplierRepository.SupplierGetAll(),
+                    //Suppliers = await _supplierRepository.SupplierGetAll(),
                     Transactions = await _transactionRepository.TransactionGetAll()
 
                 };
@@ -78,7 +78,7 @@ namespace Infrastructure.Implementations
                 transactionDetails.Price = model.Price;
                 transactionDetails.NoOfItems = model.NoOfItems;
                 transactionDetails.UpdateDate = DateTime.Now;
-                transactionDetails.SupplierId = model.SupplierId;
+                //transactionDetails.SupplierId = model.SupplierId;
                 transactionDetails.MaterialId = model.MaterialId;
                 transactionDetails.TransactionId = model.TransactionId;
                 return await _genericRepository.Update(transactionDetails);

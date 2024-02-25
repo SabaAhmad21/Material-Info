@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Infrastructure.ViewModels
 
         public string Material { get; set; }
 
-        public string Supplier { get; set; }
+        //public string Supplier { get; set; }
 
         public string Transaction { get; set; }
     }
@@ -36,8 +37,8 @@ namespace Infrastructure.ViewModels
         public TransactionDetailCreateVM()
         {
 
-            Suppliers = new List<SupplierVM>();
-            RawMaterials = new List<RawMaterialVM>();
+            //Suppliers = new List<SupplierVM>();
+            RawMaterials = new List<RawMaterial>();
             Transactions = new List<TransactionVM>();
 
         }
@@ -60,15 +61,15 @@ namespace Infrastructure.ViewModels
         [Range(1, int.MaxValue)]
         public int? MaterialId { get; set; }
 
-        [Required(ErrorMessage = "Please Select")]
-        [Range(1, int.MaxValue)]
-        public int? SupplierId { get; set; }
+        //[Required(ErrorMessage = "Please Select")]
+        //[Range(1, int.MaxValue)]
+        //public int? SupplierId { get; set; }
 
         public IEnumerable<TransactionVM> Transactions { get; set; }
 
-        public IEnumerable<RawMaterialVM> RawMaterials { get; set; }
+        public IEnumerable<RawMaterial> RawMaterials { get; set; }
 
-        public IEnumerable<SupplierVM> Suppliers { get; set; }
+        //public IEnumerable<SupplierVM> Suppliers { get; set; }
         public Domain.Transaction transaction { get; set; }
 
     }
@@ -77,7 +78,7 @@ namespace Infrastructure.ViewModels
         public TransactionDetailUpdateVM()
         {
 
-            Suppliers = new List<SupplierVM>();
+            //Suppliers = new List<SupplierVM>();
             RawMaterials = new List<RawMaterialVM>();
             Transactions = new List<TransactionVM>();
 
@@ -99,15 +100,25 @@ namespace Infrastructure.ViewModels
         [Range(1, int.MaxValue)]
         public int? MaterialId { get; set; }
 
-        [Required(ErrorMessage = "Please Select")]
-        [Range(1, int.MaxValue)]
-        public int? SupplierId { get; set; }
+        //[Required(ErrorMessage = "Please Select")]
+        //[Range(1, int.MaxValue)]
+        //public int? SupplierId { get; set; }
 
         public IEnumerable<TransactionVM> Transactions { get; set; }
 
         public IEnumerable<RawMaterialVM> RawMaterials { get; set; }
 
-        public IEnumerable<SupplierVM> Suppliers { get; set; }
+        //public IEnumerable<SupplierVM> Suppliers { get; set; }
+
     }
+
+    public class TransactionDetailsInclude
+    {
+        
+        public Domain.Transaction transaction { get; set; }
+
+        public TransactionDetailCreateVM details { get; set; }
+    }
+
 }
 
